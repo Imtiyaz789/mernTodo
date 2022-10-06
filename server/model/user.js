@@ -1,0 +1,29 @@
+import mongoose from 'mongoose';
+const userSchema = new mongoose.Schema({
+
+    fullName: {
+        type: String,
+        required: true,
+
+    },
+    pwd: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    task: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'tasks'
+    }]
+
+}, {
+    timestamps: true
+})
+
+const User = mongoose.model('users', userSchema);
+
+export default User;
