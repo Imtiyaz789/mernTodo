@@ -12,8 +12,8 @@ import UserRoutes from './routes/UserRoutes.js'
 connectDB();
 
 // using middleware here
-app.use(json());
 app.use(cors());
+app.use(json());
 
 // calling our http request here
 app.use('/api', UserRoutes)
